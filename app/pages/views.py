@@ -4,7 +4,11 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'pages/index.html')
+    data = {
+        "title": "Welcome",
+        "subtitle": "This is a best site for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique."
+    }
+    return render(request, 'pages/index.html', data)
 
 
 def about(request):
