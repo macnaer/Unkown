@@ -4,12 +4,19 @@ from django.shortcuts import render
 
 
 def index(request):
-    data = {
-        "title": "Welcome",
-        "subtitle": "This is a best site for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique."
-    }
-    return render(request, 'pages/index.html', data)
+    return render(request, 'pages/index.html')
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    data = {'title': "About Us"}
+    return render(request, 'pages/about.html', data)
+
+
+def services(request):
+    data = {'title': "Our Services"}
+    return render(request, 'pages/services.html', data)
+
+
+def contact(request):
+    data = {'title': "Contact Us"}
+    return render(request, 'pages/contact.html', data)
