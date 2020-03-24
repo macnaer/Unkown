@@ -9,7 +9,7 @@ class CarManager(models.Model):
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=200)
     # email = models.EmailField()
-    age_date = models.DateTimeField(default=datetime.now, blank=True)
+    hire_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
         return self.name
