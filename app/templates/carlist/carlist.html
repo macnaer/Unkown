@@ -53,11 +53,38 @@
                 No Cars Avialable
             </div>
             {% endif %}
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <span class="p-3">1</span>
                 <a href="#" class="p-3">2</a>
                 <a href="#" class="p-3">3</a>
                 <a href="#" class="p-3">4</a>
+            </div> -->
+            <div class="col-md-12">
+                {% if carlist.has_other_pages %}
+                <nav aria-label="Pagination">
+                    <ul class="pagination">
+                        {% if carlist.has_previous %}
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{ carlist.previous_page_number }}">Previous</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        {% endif %}
+                        {% for i in carlist.paginator.page_range %}
+                        {% if carlist.number == i %}
+                        <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if carlist.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ carlist.next_page_number }}">Next</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
             </div>
         </div>
     </div>
