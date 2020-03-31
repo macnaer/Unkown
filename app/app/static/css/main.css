@@ -1588,3 +1588,7 @@ html {
 .innerpage{
   background-image: url('../images/hero_2.jpg')
 }
+
+.carlist{
+  width: 100%;
+}

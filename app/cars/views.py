@@ -1,11 +1,16 @@
 from django.shortcuts import render
 
+from .models import CarsList
+
 
 def index(request):
-    data = {
-        'title': 'Car listing'
+    carlist = CarsList.objects.all()
+
+    context = {
+        "carlist": carlist
     }
-    return render(request, "carlist/carlist.html", data)
+
+    return render(request, "carlist/carlist.html", context)
 
 
 def singlecar(request):
