@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
 
 from .models import CarsList
@@ -20,4 +21,8 @@ def index(request):
 
 
 def singlecar(request, carlist_id):
-    return render(request, "carlist/singlecar.html")
+    car = get_object_or_404(CarsList, pk=carlist_id)
+    context = {
+        "car": car
+    }
+    return render(request, "carlist/singlecar.html", context)

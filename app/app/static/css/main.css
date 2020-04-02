@@ -1220,8 +1220,8 @@ html {
       height: 100vh;
       min-height: 900px; }
     .ftco-cover-1.innerpage, .ftco-cover-1.innerpage .container > .row {
-      height: 90vh;
-      min-height: 700px; }
+      height: 550px;
+      min-height: 300px; }
     .ftco-cover-1 > .container {
       position: relative; }
     .ftco-cover-1.overlay {
@@ -1587,12 +1587,18 @@ html {
 
 .innerpage{
   background-image: url('../images/hero_2.jpg')
+
 }
 
 .carlist{
   width: 100%;
   height: 200px;
 }
+
 .owl-nav{
   display: none;
+}
+
+.blog-content .carlist{
+  height: 400px;
 }

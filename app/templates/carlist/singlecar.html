@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- {% include "partials/_header_internal.html" %} -->
+<div class="ftco-blocks-cover-1">
+    <div class="ftco-cover-1 innerpage overlay" style="background-image: url('images/hero_2.jpg')">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <span class="d-block mb-3 text-white" data-aos="fade-up">July 17, 2019 <span
+                            class="mx-2 text-primary">&bullet;</span> by James Miller</span>
+                    <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100">Single Blog Posts Title</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 blog-content">
+                <div class="col-md-8 mb-4">
+                    <div class="item-1">
+                        <a href="#"><img src="{{ car.photo_main.url }}" alt="{{car.model}}"
+                                class="carlist mx-auto d-block"></a>
+                        <div class="item-1-contents">
+                            <div class="text-center">
+                                <h3><a href="#">{{car.vendor}} {{car.model}}</a></h3>
+                                <div class="rating">
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                </div>
+                                <div class="rent-price"><span>{{car.price}}/</span>day</div>
+                            </div>
+                            <ul class="specs">
+                                <li>
+                                    <span>Doors</span>
+                                    <span class="spec">{{car.doors}}</span>
+                                </li>
+                                <li>
+                                    <span>Seats</span>
+                                    <span class="spec">{{car.seats}}</span>
+                                </li>
+                                <li>
+                                    <span>Transmission</span>
+                                    <span class="spec">{{car.transmission}}</span>
+                                </li>
+                                <li>
+                                    <span>Minium age</span>
+                                    <span class="spec">{{car.minimum_age}} years</span>
+                                </li>
+                                <li>
+                                    <span>Engine</span>
+                                    <span class="spec">{{car.engine}}</span>
+                                </li>
+                                <li>
+                                    <span>Fuel count</span>
+                                    <span class="spec">{{car.fuel_count}}</span>
+                                </li>
+                                <li>
+                                    <span>Color</span>
+                                    <span class="spec">{{car.color}}</span>
+                                </li>
+                            </ul>
+                            <div class="d-flex action">
+                                <a href="#" class="btn btn-primary">Rent Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
