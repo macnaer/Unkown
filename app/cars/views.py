@@ -7,16 +7,17 @@ from .models import CarsList
 def index(request):
     carlist = CarsList.objects.all().filter(is_published=True)
 
-    paginator = Paginator(carlist, 1)
+    paginator = Paginator(carlist, 6)
     page = request.GET.get("page")
     paged_carlist = paginator.get_page(page)
 
     context = {
-        "carlist": paged_carlist
+        "carlist": paged_carlist,
+        "title": "Car Rent"
     }
 
     return render(request, "carlist/carlist.html", context)
 
 
-def singlecar(request):
-    return render(request, "carlist/carlist.html")
+def singlecar(request, carlist_id):
+    return render(request, "carlist/singlecar.html")

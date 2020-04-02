@@ -42,7 +42,7 @@
                             </li>
                         </ul>
                         <div class="d-flex action">
-                            <a href="{% url 'contact' %}" class="btn btn-primary">Rent Now</a>
+                            <a href="{% url 'carlist'  %}" class="btn btn-primary">Rent Now</a>
                         </div>
                     </div>
                 </div>
@@ -53,12 +53,6 @@
                 No Cars Avialable
             </div>
             {% endif %}
-            <!-- <div class="col-12">
-                <span class="p-3">1</span>
-                <a href="#" class="p-3">2</a>
-                <a href="#" class="p-3">3</a>
-                <a href="#" class="p-3">4</a>
-            </div> -->
             <div class="col-md-12">
                 {% if carlist.has_other_pages %}
                 <nav aria-label="Pagination">

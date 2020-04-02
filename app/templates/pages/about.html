@@ -30,85 +30,26 @@
             </div>
         </div>
         <div class="row align-items-stretch">
-
+            {% if managers %}
+            {% for manager in managers %}
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="post-entry-1 h-100 person-1">
 
-                    <img src="{% static 'images/person_1.jpg' %}" alt="Image" class="img-fluid">
+                    <img src="{{ manager.photo.url }}" alt="Image" class="img-fluid">
 
                     <div class="post-entry-1-contents">
-                        <span class="meta">Founder</span>
-                        <h2>James Doe</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
+                        <span class="meta">Manager</span>
+                        <h2>{{ manager.name }}</h2>
+                        <p>{{ manager.description }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="post-entry-1 h-100 person-1">
-
-                    <img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid">
-
-                    <div class="post-entry-1-contents">
-                        <span class="meta">Founder</span>
-                        <h2>James Doe</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-                    </div>
-                </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-md-12">
+                <p>No Managers Aviable</p>
             </div>
-
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="post-entry-1 h-100 person-1">
-
-                    <img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid">
-
-                    <div class="post-entry-1-contents">
-                        <span class="meta">Founder</span>
-                        <h2>James Doe</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="post-entry-1 h-100 person-1">
-
-                    <img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid">
-
-                    <div class="post-entry-1-contents">
-                        <span class="meta">Founder</span>
-                        <h2>James Doe</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="post-entry-1 h-100 person-1">
-
-                    <img src="{% static 'images/person_5.jpg' %}" alt="Image" class="img-fluid">
-
-                    <div class="post-entry-1-contents">
-                        <span class="meta">Founder</span>
-                        <h2>James Doe</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="post-entry-1 h-100 person-1">
-
-                    <img src="{% static 'images/person_5.jpg' %}" alt="Image" class="img-fluid">
-
-                    <div class="post-entry-1-contents">
-                        <span class="meta">Founder</span>
-                        <h2>James Doe</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>
-                    </div>
-                </div>
-            </div>
-
-
+            {% endif %}
         </div>
     </div>
 </div>

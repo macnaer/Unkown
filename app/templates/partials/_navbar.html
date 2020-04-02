@@ -34,8 +34,8 @@
                                 href="{% url 'index' %}" class="nav-link">Home</a></li>
                         <li {% if 'services' in request.path %} class="active" {% else %} {% endif %}><a
                                 href="{% url 'services' %}" class="nav-link">Services</a></li>
-                        <li {% if 'cars' in request.path %} class="active" {% else %} {% endif %}><a href="cars.html"
-                                class="nav-link">Cars</a></li>
+                        <li {% if 'cars' in request.path %} class="active" {% else %} {% endif %}><a
+                                href="{% url 'carlist' %}" class="nav-link">Cars</a></li>
                         <li {% if 'about' in request.path %} class="active" {% else %} {% endif %}><a
                                 href="{% url 'about' %}" class="nav-link">About</a></li>
                         <li {% if 'blog' in request.path %} class="active" {% else %} {% endif %}><a href="blog.html"
