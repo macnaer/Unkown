@@ -26,3 +26,4 @@ def singlecar(request, carlist_id):
         "car": car
     }
     return render(request, "carlist/singlecar.html", context)
+

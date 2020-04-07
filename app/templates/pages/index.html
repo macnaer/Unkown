@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-12">
 
-        <form class="trip-form">
+        <form class="trip-form" action="{% url 'search' %}">
           <div class="row align-items-center mb-4">
             <div class="col-md-6">
               <h3 class="m-0">Begin your trip here</h3>
@@ -18,25 +18,49 @@
           </div>
           <div class="row">
             <div class="form-group col-md-3">
-              <label for="cf-1">Where you from</label>
-              <input type="text" id="cf-1" placeholder="Your pickup address" class="form-control">
+              <label for="cf-1">Vendor</label>
+              <select class="form-control" name="vendor" id="exampleFormControlSelect1">
+                <option>select</option>
+                {% for car in cars %}
+                <option value="{{ car.vendor }}">{{ car.vendor }}</option>
+                {% endfor  %}
+
+              </select>
             </div>
             <div class="form-group col-md-3">
-              <label for="cf-2">Where you go</label>
-              <input type="text" id="cf-2" placeholder="Your drop-off address" class="form-control">
+              <label for="cf-2">Model</label>
+              <select class="form-control" name="model" id="exampleFormControlSelect1">
+                <option>select</option>
+                {% for car in cars %}
+                <option value="{{ car.model }}">{{ car.model }}</option>
+                {% endfor  %}
+
+              </select>
             </div>
             <div class="form-group col-md-3">
-              <label for="cf-3">Journey date</label>
-              <input type="text" id="cf-3" placeholder="Your pickup address" class="form-control datepicker px-3">
+              <label for="cf-3">Engine</label>
+              <select class="form-control" name="engine" id="exampleFormControlSelect1">
+                <option>select</option>
+                {% for car in cars %}
+                <option value="{{ car.engine }}">{{ car.engine }}</option>
+                {% endfor  %}
+
+              </select>
             </div>
             <div class="form-group col-md-3">
-              <label for="cf-4">Return date</label>
-              <input type="text" id="cf-4" placeholder="Your pickup address" class="form-control datepicker px-3">
+              <label for="cf-4">Transmission</label>
+              <select class="form-control" name="transmission" id="exampleFormControlSelect1">
+                <option>select</option>
+                {% for car in cars %}
+                <option value="{{ car.transmission }}">{{ car.transmission }}</option>
+                {% endfor  %}
+
+              </select>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6">
-              <input type="submit" value="Submit" class="btn btn-primary">
+              <input type="submit" value="Search" class="btn btn-primary">
             </div>
           </div>
         </form>

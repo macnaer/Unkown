@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "partials/_header_internal.html" %}
+<div class="site-section pt-0 pb-0 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form class="trip-form" action="{% url 'search' %}">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-6">
+                            <h3 class="m-0">Begin your trip here</h3>
+                        </div>
+                        <div class="col-md-6 text-md-right">
+                            <span class="text-primary">32</span> <span>cars available</span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="cf-1">Vendor</label>
+                            <select class="form-control" name="vendor" id="exampleFormControlSelect1">
+                                {% for vendor in vendor_list %}
+                                <option placeholder="{{ vendor }}">{{ vendor }}</option>
+                                {% endfor  %}
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="cf-2">Model</label>
+                            <select class="form-control" name="model" id="exampleFormControlSelect1">
+                                {% for model in models_list %}
+                                <option placeholder="{{ model }}">{{ model }}</option>
+                                {% endfor  %}
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="cf-3">Engine</label>
+                            <select class="form-control" name="engine" id="exampleFormControlSelect1">
+                                {% for engine in engine_list %}
+                                <option placeholder="{{ engine }}">{{ engine }}</option>
+                                {% endfor  %}
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="cf-4">Transmission</label>
+                            <select class="form-control" name="transmission" id="exampleFormControlSelect1">
+                                {% for car in cars %}
+                                <option placeholder="{{ car.transmission }}">{{ car.transmission }}</option>
+                                {% endfor  %}
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="submit" value="Search" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            {% if cars  %}
+            {% for car in cars %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item-1">
+                    <a href="#"><img src="{{ car.photo_main.url }}" alt="{{car.model}}"
+                            class="carlist mx-auto d-block"></a>
+                    <div class="item-1-contents">
+                        <div class="text-center">
+                            <h3><a href="#">{{car.vendor}} {{car.model}}</a></h3>
+                            <div class="rating">
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                            </div>
+                            <div class="rent-price"><span>{{car.price}}/</span>day</div>
+                        </div>
+                        <ul class="specs">
+                            <li>
+                                <span>Doors</span>
+                                <span class="spec">{{car.doors}}</span>
+                            </li>
+                            <li>
+                                <span>Seats</span>
+                                <span class="spec">{{car.seats}}</span>
+                            </li>
+                            <li>
+                                <span>Transmission</span>
+                                <span class="spec">{{car.transmission}}</span>
+                            </li>
+                            <li>
+                                <span>Minium age</span>
+                                <span class="spec">{{car.minimum_age}} years</span>
+                            </li>
+                        </ul>
+                        <div class="d-flex action">
+                            <a href="{% url 'singlecar' car.id  %}" class="btn btn-primary">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col">
+                No Cars Avialable
+            </div>
+            {% endif %}
+            <div class="col-md-12">
+                {% if carlist.has_other_pages %}
+                <nav aria-label="Pagination">
+                    <ul class="pagination">
+                        {% if carlist.has_previous %}
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{ carlist.previous_page_number }}">Previous</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        {% endif %}
+                        {% for i in carlist.paginator.page_range %}
+                        {% if carlist.number == i %}
+                        <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if carlist.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ carlist.next_page_number }}">Next</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
