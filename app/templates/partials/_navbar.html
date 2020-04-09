@@ -32,6 +32,8 @@
                     <ul class="site-menu main-menu js-clone-nav ml-auto ">
                         <li {% if '/' == request.path %} class="active" {% else %} {% endif %}><a
                                 href="{% url 'index' %}" class="nav-link">Home</a></li>
+                        <li {% if 'search' in request.path %} class="active" {% else %} {% endif %}><a
+                                href="{% url 'search' %}" class="nav-link">Search</a></li>
                         <li {% if 'services' in request.path %} class="active" {% else %} {% endif %}><a
                                 href="{% url 'services' %}" class="nav-link">Services</a></li>
                         <li {% if 'cars' in request.path %} class="active" {% else %} {% endif %}><a

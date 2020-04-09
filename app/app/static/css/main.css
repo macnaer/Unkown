@@ -1099,7 +1099,7 @@ h5,
 }
 
 .site-section {
-  padding: 7rem 0;
+  padding: 4rem 0;
 }
 @media (max-width: 991.98px) {
   .site-section {
@@ -2101,4 +2101,8 @@ h5,
 }
 .register-form {
   margin: 70px 0;
+}
+.trip_form_wrapper .trip-form {
+  position: initial;
+  margin-top: 40px;
 }

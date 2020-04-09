@@ -20,9 +20,10 @@
             <div class="form-group col-md-3">
               <label for="cf-1">Vendor</label>
               <select class="form-control" name="vendor" id="exampleFormControlSelect1">
-                <option>select</option>
-                {% for car in cars %}
-                <option value="{{ car.vendor }}">{{ car.vendor }}</option>
+                {% for vendor in vendor_list %}
+                vendor {{vendor}}
+                <option placeholder="{{ vendor }}" {% if vendor == request_value.vendor %} selected {% endif %}>
+                  {{ vendor }}</option>
                 {% endfor  %}
 
               </select>
@@ -30,9 +31,9 @@
             <div class="form-group col-md-3">
               <label for="cf-2">Model</label>
               <select class="form-control" name="model" id="exampleFormControlSelect1">
-                <option>select</option>
-                {% for car in cars %}
-                <option value="{{ car.model }}">{{ car.model }}</option>
+                {% for model in models_list %}
+                <option placeholder="{{ model }}" {% if model == request_value.model %} selected {% endif %}>{{ model }}
+                </option>
                 {% endfor  %}
 
               </select>
@@ -40,9 +41,9 @@
             <div class="form-group col-md-3">
               <label for="cf-3">Engine</label>
               <select class="form-control" name="engine" id="exampleFormControlSelect1">
-                <option>select</option>
-                {% for car in cars %}
-                <option value="{{ car.engine }}">{{ car.engine }}</option>
+                {% for engine in engine_list %}
+                <option placeholder="{{ engine }}" {% if engine == request_value.engine %} selected {% endif %}>
+                  {{ engine }}</option>
                 {% endfor  %}
 
               </select>
@@ -50,9 +51,10 @@
             <div class="form-group col-md-3">
               <label for="cf-4">Transmission</label>
               <select class="form-control" name="transmission" id="exampleFormControlSelect1">
-                <option>select</option>
-                {% for car in cars %}
-                <option value="{{ car.transmission }}">{{ car.transmission }}</option>
+                {% for transmission in transmission_list %}
+                <option placeholder="{{ transmission }}" {% if transmission == request_value.transmission %} selected
+                  {% endif %}>
+                  {{ transmission }}</option>
                 {% endfor  %}
 
               </select>
