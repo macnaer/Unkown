@@ -20,8 +20,8 @@
 <div class="site-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 blog-content">
-                <div class="col-md-8 mb-4">
+            <div class="col-md-12 blog-content d-flex">
+                <div class="col-8">
                     <div class="item-1">
                         <a href="#"><img src="{{ car.photo_main.url }}" alt="{{car.model}}"
                                 class="carlist mx-auto d-block"></a>
@@ -67,11 +67,43 @@
                                     <span class="spec">{{car.color}}</span>
                                 </li>
                             </ul>
-                            <div class="d-flex action">
-                                <a href="#" class="btn btn-primary">Rent Now</a>
-                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-4">
+                    <form action="{% url 'contact' %}" method="POST">
+                        {% csrf_token %}
+                        {% if user.is_authenticated %}
+                        <input type="hidden" name="user_id" value="{{ user.id }}" />
+                        {% else %}
+                        <input type="hidden" name="user_id" value="0" />
+                        {% endif %}
+                        <input type="hidden" name="car_id" value="{{ car.id }}" />
+                        <input type="hidden" name="car_name" value="{{ car.model}}" />
+                        <input type="hidden" name="car_manager" value="{{ car.carmanager }}" />
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" {% if user.is_authenticated %}
+                                value="{{user.first_name}}" {% endif %} required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" name="email" class="form-control" {% if user.is_authenticated %}
+                                value="{{user.email}}" {% endif %} required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea class="form-control" name="text" id="exampleFormControlTextarea1"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="d-flex action">
+                            <button type="submit" class="btn btn-primary">Rent Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
