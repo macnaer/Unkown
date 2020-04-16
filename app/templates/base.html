@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
     <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <title>Document</title>
+    <title>{% block title %} {% endblock %}</title>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">

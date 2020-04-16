@@ -52,6 +52,9 @@ def login(request):
 
 
 def logout(request):
+    if request.method == "POST":
+        auth.logout(request)
+    messages.success(request, "See you later.")
     return redirect('index')
 
 
